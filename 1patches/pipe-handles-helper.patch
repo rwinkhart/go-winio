@@ -1,10 +1,10 @@
 diff --git a/pipe.go b/pipe.go
-index a2da663..ef933c1 100644
+index 58c68e9..01cabd7 100644
 --- a/pipe.go
 +++ b/pipe.go
-@@ -122,6 +122,18 @@ type win32MessageBytePipe struct {
- 	readEOF     bool
- }
+@@ -123,6 +123,18 @@ type win32MessageBytePipe struct {
+ 
+ type pipeAddress string
  
 +// GetPipeHandle returns the underlying handle of a pipe.
 +func GetPipeHandle(f net.Conn) windows.Handle {
@@ -18,6 +18,6 @@ index a2da663..ef933c1 100644
 +	}
 +}
 +
- type pipeAddress string
- 
  func (f *win32Pipe) LocalAddr() net.Addr {
+ 	return pipeAddress(f.path)
+ }
